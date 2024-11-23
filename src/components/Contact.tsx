@@ -1,13 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  email: z.string().email('Invalid email address'),
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+});
+
+type ContactForm = z.infer<typeof schema>;
 
 export default function Contact() {
   const { t } = useTranslation();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add form submission logic here
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactForm>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = async (data: ContactForm) => {
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await emailjs.send(
+        'service_eul21df',
+        'template_l03n8nn',
+        {
+          to_email: 'aganzemirindi2016@gmail.com',
+          from_email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        '6ijlFut6Zm40_4Eeg'
+      );
+
+      setSubmitStatus('success');
+      reset();
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,34 +86,69 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {submitStatus === 'success' && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                Message sent successfully!
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                Failed to send message. Please try again.
+              </div>
+            )}
+            
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 {t('contact.email')}
               </label>
               <input
+                {...register('email')}
                 type="email"
                 id="email"
-                required
                 className="w-full px-4 py-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              )}
             </div>
+
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                {t('contact.subject')}
+              </label>
+              <input
+                {...register('subject')}
+                type="text"
+                id="subject"
+                className="w-full px-4 py-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              {errors.subject && (
+                <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+              )}
+            </div>
+
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
                 {t('contact.message')}
               </label>
               <textarea
+                {...register('message')}
                 id="message"
-                required
                 rows={4}
                 className="w-full px-4 py-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+              )}
             </div>
+
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors"
+              disabled={isSubmitting}
+              className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t('contact.send')}
+              {isSubmitting ? 'Sending...' : t('contact.send')}
             </button>
           </form>
         </div>

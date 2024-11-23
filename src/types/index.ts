@@ -6,6 +6,7 @@ export interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
+  imageFile?: File;
 }
 
 export interface User {

@@ -15,6 +15,7 @@ export default {
   contact: {
     title: "Get in Touch",
     email: "Email",
+    subject: "Subject",
     message: "Message",
     send: "Send Message"
   },
