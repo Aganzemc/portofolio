@@ -13,10 +13,15 @@ const skills: Skill[] = [
   { name: 'TypeScript', level: 85, category: 'Frontend' },
   { name: 'React', level: 88, category: 'Frontend' },
   { name: 'Python', level: 82, category: 'Backend' },
-  { name: 'Node.js', level: 85, category: 'Backend' },
-  { name: 'Java', level: 75, category: 'Backend' },
+  { name: 'PHP', level: 85, category: 'Backend' },
+  { name: 'Laravel PHP', level: 75, category: 'Backend' },
   { name: 'SQL', level: 80, category: 'Database' },
-  { name: 'MongoDB', level: 78, category: 'Database' },
+  { name: 'SQLite', level: 78, category: 'Database' },
+  { name: 'Python', level: 75, category: 'Analyse des données' },
+  { name: 'R', level: 80, category: 'Analyse des données' },
+  { name: 'STATA', level: 85, category: 'Analyse des données' },
+  { name: 'SPSS', level: 85, category: 'Analyse des données' },
+  { name: 'PDI', level: 80, category: '(data warehousing' },
 ];
 
 export default function Skills() {

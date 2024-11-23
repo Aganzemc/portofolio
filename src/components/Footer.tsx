@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter} from 'lucide-react';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -45,11 +45,14 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.social')}</h3>
             <div className="flex space-x-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+              <a href="https://https://github.com/Aganzemc" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+              <a href="https://www.linkedin.com/in/christian-aganze-371774292" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                 <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>

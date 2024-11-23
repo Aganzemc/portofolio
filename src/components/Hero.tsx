@@ -4,15 +4,16 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ChevronDown, Upload } from 'lucide-react';
 import SocialLink from './SocialLink';
 import { useAuth } from '../context/AuthContext';
+import profilImage from '../images/chris.jpg'
 
 export default function Hero() {
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
-  const [profileImage, setProfileImage] = useState<string>("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800");
+  const [profileImage, setProfileImage] = useState<string>(profilImage);
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/aganzemc', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/christian-aganze-371774292', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:aganzemirindi2016@gmail.com', label: 'Email' }
   ];
 

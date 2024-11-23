@@ -2,30 +2,32 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ProjectCard from './ProjectCard';
 import { Project } from '../types';
+import imageQuotePrism from '../images/projects/QuotePrism.png'
+import imageBuzabyte from '../images/projects/buzabyte.png'
 
 const projects: Project[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce platform built with React and Node.js',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com'
+    title: 'QuotePrism Platform',
+    description: 'QuotePrism un site web frontend en React',
+    image: imageQuotePrism,
+    technologies: ['React', 'TypeScript', 'TailwinsCSS'],
+    githubUrl: 'https://github.com/Aganzemc/QuotePrism',
+    liveUrl: '#'
   },
   {
-    title: 'AI Image Generator',
-    description: 'An AI-powered image generation tool using Python',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
-    technologies: ['Python', 'TensorFlow', 'Flask', 'React'],
-    githubUrl: 'https://github.com'
+    title: 'Buzabyte Platform',
+    description: 'un site vitrine pour presenter une entrprise',
+    image:imageBuzabyte,
+    technologies: ['React', 'TypeScript', 'TailwinsCSS'],
+    githubUrl: 'https://github.com/Aganzemc/buzabyte'
   },
   {
-    title: 'Mobile Fitness App',
-    description: 'Cross-platform fitness tracking application',
-    image: 'https://images.unsplash.com/photo-1676321685222-4dd7f8ecd95c?auto=format&fit=crop&q=80&w=800',
+    title: 'Mobile Mimea ulinzi App',
+    description: 'une application encours de développement',
+    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     technologies: ['React Native', 'Firebase', 'TypeScript'],
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com'
+    githubUrl: 'https://github.com/Aganzemc/',
+    liveUrl: '#'
   }
 ];
 
