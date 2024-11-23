@@ -51,7 +51,7 @@ export default function Footer() {
               <a href="https://www.linkedin.com/in/christian-aganze-371774292" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+              <a href="https://x.com/aganze56915" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>

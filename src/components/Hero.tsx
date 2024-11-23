@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ChevronDown, Upload } from 'lucide-react';
+import { Github, Linkedin, Mail,Twitter, ChevronDown, Upload } from 'lucide-react';
 import SocialLink from './SocialLink';
 import { useAuth } from '../context/AuthContext';
 import profilImage from '../images/chris.jpg'
@@ -14,6 +14,7 @@ export default function Hero() {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/aganzemc', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/christian-aganze-371774292', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://x.com/aganze56915', label: 'X' },
     { icon: Mail, href: 'mailto:aganzemirindi2016@gmail.com', label: 'Email' }
   ];
 
